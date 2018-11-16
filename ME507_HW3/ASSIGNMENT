@@ -1,0 +1,51 @@
+ME507 Homework Assignment, due November 16 by 23:55: 
+
+This assignment is about learning some C++ concepts; it is to be completed 
+using any old desktop or portable computer rather than a microcontroller. 
+
+1. You are given the class 'yastr', which implements a sort of string class.
+   (It is nothing like a real string class, but it's useful to mess around 
+   with.) Add to this string class a method reverse(), which reverses the
+   characters in the string in place, so that the next time the string is
+   printed, everything will be backwards. The method reverse() is already
+   in the .h file, but it isn't in the .cpp file yet.
+
+2. Make a descendant class of 'yastr' and call it 'cryptostr.'  Put your 
+   descendent class right in your copy of yastr.h and yastr.cpp. Your class
+   should be able to do the following things, in addition to all the things
+   that 'yastr' can do:
+     - Find the ROT13 representation of an uppercase string. This means that
+       you add 13 to each uppercase letter in the string, and if the result
+       is greater than 'Z', you subtract 26 so that the result is a letter. 
+       Anything which isn't an uppercase letter is left alone. This method
+       implements a ridiculously simple (but popular) type of encryption.
+       This should be in a method called rot13(). If you like, you can make
+       rot13() work for lowercase letters as well as uppercase. 
+     - Make a simple table which shows the frequency of each letter in the
+       string. This is used to break random substitution cyphers. The table
+       should look like this:
+       a 3
+       b 1
+       c 1
+       d 0
+       e 5
+       ...
+       z 0
+       The same sort of table should be produced for all the uppercase letters
+       as well. You do not need to list the frequencies of numbers or other
+       characters, just letters. Call this method table(); it should be given 
+       a reference to an ostream on which to print and return nothing. The
+       first parameter to 'operator <<' is a reference to an ostream, so you
+       can use that as an example of how to use a stream reference. 
+   Once you've made your 'cryptostr' class (or even better, while you're 
+   making it), add a function cryptostr_test() which tests the functionality 
+   in class cryptostr. It is recommended to convert a string to UPPERCASE,
+   then rot13() it, then rot13() it again -- this should restore the string
+   to what it was before rot13() was used in the first place. 
+
+3. Compress your files yastr.h, yastr.cpp, and Makefile into a ZIP file. The
+   file must be named your_last_name.zip, with any spaces, hyphens, etc. in
+   your last name replaced by underscores and all characters in lowercase. 
+
+4. Submit everything by emailing to me@me.me.calpoly.edu with the zip file as
+   an attachment to the email. 
