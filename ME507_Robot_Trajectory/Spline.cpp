@@ -101,14 +101,21 @@ bool Spline::reticulateSplines(double *P0, double *P1, int type = 1)
 	double yp0_hat = tan(theta0_hat);
 	double yp1_hat = tan(theta1_hat);
 	
-	if(type = 1) {
+	if(type == 1) {
 		a_ = 0.0;
 		b_ = 0.0;
 		c_ = (yp1_hat + yp0_hat) / (x1_hat * x1_hat);
 		d_ = -(2.0 * yp0_hat + yp1_hat) / x1_hat;
 		e_ = yp0_hat;
 	}
-	else if(type != 1){
+	else if(type == 2){
+		a_ = -(3 * (yp0_hat + yp1_hat)) / (x1_hat * x1_hat * x1_hat * x1_hat);
+		b_ = (8 * yp0_hat + 7 * yp1_hat) / (x1_hat * x1_hat * x1_hat);
+		c_ = -(6 * yp0_hat + 4 * yp1_hat) / (x1_hat * x1_hat);
+		d_ = 0;
+		e_ = yp0_hat;
+	}
+	else {
 		return false; //quartic not implemented, so return false.
 	}
 	return true;
